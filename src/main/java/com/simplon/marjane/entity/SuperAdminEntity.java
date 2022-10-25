@@ -2,9 +2,11 @@ package com.simplon.marjane.entity;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "super_admin", schema = "public", catalog = "marjane")
-public class SuperAdminEntity {
+public class SuperAdminEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "sa_id")
@@ -19,6 +21,11 @@ public class SuperAdminEntity {
     @Column(name = "sa_password")
     private String saPassword;
 
+    private static String tableName = "super_admin";
+
+    public static String getTableName() {
+        return tableName;
+    }
     public long getSaId() {
         return saId;
     }
@@ -74,4 +81,6 @@ public class SuperAdminEntity {
         result = 31 * result + (saPassword != null ? saPassword.hashCode() : 0);
         return result;
     }
+
+
 }
