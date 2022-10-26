@@ -17,7 +17,7 @@ public class main {
     public static void main(String[] args) {
             choice = Menus.mainMenu();
             if (choice == 1) {
-                Menus.loginMenu();
+                choice = Menus.loginMenu();
                 switch (choice) {
                     // Seperate Users login in 3 cases (SuperAdmin, Admin, Manager)
                     case 1:

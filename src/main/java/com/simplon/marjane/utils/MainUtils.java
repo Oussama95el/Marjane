@@ -31,8 +31,7 @@ public class MainUtils {
             println("SuperAdmin login successfully");
             // do while loop to display superAdmin main menu
             do {
-                Menus.superAdminMainMenu();
-                choice = scan().nextInt();
+                choice = Menus.superAdminMainMenu();
                 switch (choice) {
                     case 1:
                         // Create Manager
@@ -64,13 +63,16 @@ public class MainUtils {
 
     public static void managerWorkflow(){
         // adminWorkflow display menu login and admin main menu
-
+        Object[] adminLogin = (Object[]) Menus.adminLoginMenu();
+        AdminDao adminDao = new AdminDao();
+        adminDao.validateAdminLogin(adminLogin);
     }
 
     public static void respRayonWorkflow(){
         // respRayonWorkflow display menu login and manager main menu
 
     }
+
 
 
 }

@@ -99,7 +99,9 @@ public class Menus {
         String email = MainUtils.scan().nextLine();
         MainUtils.println("Enter Manager Password: ");
         String password = MainUtils.scan().nextLine();
-        return new AdminEntity(name, email, password) ;
+        // hash password
+        String hashedPassword = Security.hashPassword(password);
+        return new AdminEntity(name, email, hashedPassword) ;
     }
     // Create Responsible Rayon
     public static RespRayonEntity createResponsibleRayon() {
@@ -111,6 +113,8 @@ public class Menus {
         String email = MainUtils.scan().nextLine();
         MainUtils.println("Enter Responsible Rayon Password: ");
         String password = MainUtils.scan().nextLine();
+        // hash password
+        String hashedPassword = Security.hashPassword(password);
         // stream to print all categories and get the category id
         MainUtils.println("Enter Responsible Rayon Category: ");
         categories.forEach(category -> {
@@ -118,7 +122,7 @@ public class Menus {
         });
         MainUtils.println("Enter Category id: ");
         int cId = MainUtils.scan().nextInt();
-        return new RespRayonEntity(name, email, password,cId);
+        return new RespRayonEntity(name, email, hashedPassword,cId);
     }
 
 }

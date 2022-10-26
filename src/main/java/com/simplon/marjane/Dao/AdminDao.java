@@ -1,8 +1,12 @@
 package com.simplon.marjane.Dao;
 
 import com.simplon.marjane.entity.AdminEntity;
+import com.simplon.marjane.services.JpaService;
 
 import java.util.List;
+
+import static com.simplon.marjane.utils.MainUtils.println;
+import static com.simplon.marjane.utils.Security.checkPassword;
 
 public class AdminDao extends AbstractHibernateDao<AdminEntity> {
 
@@ -31,15 +35,23 @@ public class AdminDao extends AbstractHibernateDao<AdminEntity> {
     }
 
     // find one admin by email and password
-    public static boolean validateAdminLogin(Object[] login){
+    public boolean validateAdminLogin(Object[] login){
         String email = (String) login[0];
         String password = (String) login[1];
-        return jpaService.runInTransaction(entityManager -> {
-            return entityManager.createQuery("select a from AdminEntity a WHERE a.aEmail = :email and a.aPassword = :password", AdminEntity.class)
-                    .setParameter("email", email)
-                    .setParameter("password", password)
-                    .getResultList().size() > 0;
-        });
+        AdminEntity admin = getAdminByEmail(email);
+        if (admin != null){
+            println("email valid");
+        }else {
+            println("wrong email");
+        }
+        assert admin != null;
+        if (checkPassword(password, admin.getaPassword())){
+            println("connected with success");
+            return true;
+        }else {
+            println("wrong password");
+            return false;
+        }
     }
 
     // create admin
