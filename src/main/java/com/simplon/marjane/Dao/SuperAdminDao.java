@@ -30,8 +30,5 @@ public class SuperAdminDao extends AbstractHibernateDao<SuperAdminEntity> {
         return findAll();
     }
 
-    // function creat new admin in the database
-//    public void createAdmin(AdminEntity AdminEntity) {
-//        create(AdminEntity);
-//    }
+
 }

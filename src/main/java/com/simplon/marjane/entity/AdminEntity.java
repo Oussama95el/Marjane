@@ -2,9 +2,11 @@ package com.simplon.marjane.entity;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "admin", schema = "public", catalog = "marjane")
-public class AdminEntity {
+public class AdminEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "a_id")

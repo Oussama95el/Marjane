@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 public class JpaService {
     private static JpaService instance;
-    private EntityManagerFactory entityManagerFactory;
+    private final EntityManagerFactory entityManagerFactory;
 
     public JpaService(){
         entityManagerFactory = Persistence.createEntityManagerFactory("marjane");

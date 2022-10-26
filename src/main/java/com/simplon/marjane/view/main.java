@@ -24,6 +24,7 @@ public class main {
                         break;
                     case 2:
                         Object[] adminLogin = (Object[]) Menus.adminLoginMenu();
+
                         break;
                     case 3:
                         Object[] managerLogin = (Object[]) Menus.managerLoginMenu();
