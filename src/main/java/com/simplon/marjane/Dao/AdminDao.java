@@ -31,7 +31,7 @@ public class AdminDao extends AbstractHibernateDao<AdminEntity> {
     }
 
     // find one admin by email and password
-    public boolean validateAdminLogin(Object[] login){
+    public static boolean validateAdminLogin(Object[] login){
         String email = (String) login[0];
         String password = (String) login[1];
         return jpaService.runInTransaction(entityManager -> {

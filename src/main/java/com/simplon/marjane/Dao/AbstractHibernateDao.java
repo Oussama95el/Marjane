@@ -1,14 +1,14 @@
 package com.simplon.marjane.Dao;
 
 import com.simplon.marjane.services.JpaService;
-import org.hibernate.annotations.Table;
-
-
 import java.io.Serializable;
 import java.util.List;
 
-import static com.simplon.marjane.utils.MainUtils.print;
-import static com.simplon.marjane.utils.MainUtils.println;
+
+/**
+ * Class to manage CRUD methods by taking Entity class using generic types
+ * @param <T>
+ */
 
 public abstract class AbstractHibernateDao<T extends Serializable> {
     

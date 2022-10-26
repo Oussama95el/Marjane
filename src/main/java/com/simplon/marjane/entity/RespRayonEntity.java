@@ -2,9 +2,22 @@ package com.simplon.marjane.entity;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
+
+/**
+ * Entity class for promotion table
+ * @author Oussama Elbechari
+ * @version 1.0
+ * @since 1.0
+ * @see Serializable
+ * @see Entity
+ * @see Table
+ * @see Column
+ */
 @Entity
 @Table(name = "resp_rayon", schema = "public", catalog = "marjane")
-public class RespRayonEntity {
+public class RespRayonEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "rr_id")
@@ -61,6 +74,19 @@ public class RespRayonEntity {
     public void setRrRayon(long rrRayon) {
         this.rrRayon = rrRayon;
     }
+
+    //Constructor with parameters
+    public RespRayonEntity( String rrName, String rrEmail, String rrPassword, long rrRayon) {
+        this.rrName = rrName;
+        this.rrEmail = rrEmail;
+        this.rrPassword = rrPassword;
+        this.rrRayon = rrRayon;
+    }
+    //Constructor
+    public RespRayonEntity() {
+    }
+
+
 
     @Override
     public boolean equals(Object o) {

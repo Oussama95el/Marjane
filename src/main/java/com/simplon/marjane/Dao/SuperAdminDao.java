@@ -30,5 +30,28 @@ public class SuperAdminDao extends AbstractHibernateDao<SuperAdminEntity> {
         return findAll();
     }
 
+    // find one superAdmin by id
+    public SuperAdminEntity getSuperAdminById(long id) {
+        return findOne(id);
+    }
+
+    // find one superAdmin by email
+    public SuperAdminEntity getSuperAdminByEmail(String email) {
+        return jpaService.runInTransaction(entityManager -> {
+            return entityManager.createQuery("select s from SuperAdminEntity s WHERE s.saEmail = :email", SuperAdminEntity.class)
+                    .setParameter("email", email)
+                    .getSingleResult();
+        });
+    }
+
+    // delete superAdmin
+    public void deleteSuperAdmin(SuperAdminEntity superAdmin) {
+        delete(superAdmin);
+    }
+    // delete superAdmin by id
+    public void deleteSuperAdminById(long id) {
+        deleteById(id);
+    }
+
 
 }

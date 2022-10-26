@@ -53,6 +53,17 @@ public class AdminEntity implements Serializable {
         this.aPassword = aPassword;
     }
 
+    //Constructor with parameters
+    public AdminEntity( String aName, String aEmail, String aPassword) {
+        this.aName = aName;
+        this.aEmail = aEmail;
+        this.aPassword = aPassword;
+    }
+
+    // default constructor
+    public AdminEntity() {
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

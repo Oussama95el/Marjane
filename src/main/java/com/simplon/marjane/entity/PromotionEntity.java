@@ -2,12 +2,13 @@ package com.simplon.marjane.entity;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
 
 @Entity
 @Table(name = "promotion", schema = "public", catalog = "marjane")
-public class PromotionEntity {
+public class PromotionEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "p_id")
