@@ -3,6 +3,8 @@ package com.simplon.marjane.entity;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "category", schema = "public", catalog = "marjane")
@@ -14,6 +16,39 @@ public class CategoryEntity implements Serializable {
     @Basic
     @Column(name = "c_name")
     private String cName;
+
+    @OneToMany(mappedBy = "rrRayon")
+    private Set<RespRayonEntity> respRayons = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "pCategory")
+    private Set<PromotionEntity> promotions = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "scCategory")
+    private Set<SubCategoryEntity> subCategories = new LinkedHashSet<>();
+
+    public Set<SubCategoryEntity> getSubCategories() {
+        return subCategories;
+    }
+
+    public void setSubCategories(Set<SubCategoryEntity> subCategories) {
+        this.subCategories = subCategories;
+    }
+
+    public Set<PromotionEntity> getPromotions() {
+        return promotions;
+    }
+
+    public void setPromotions(Set<PromotionEntity> promotions) {
+        this.promotions = promotions;
+    }
+
+    public Set<RespRayonEntity> getRespRayons() {
+        return respRayons;
+    }
+
+    public void setRespRayons(Set<RespRayonEntity> respRayons) {
+        this.respRayons = respRayons;
+    }
 
     public long getcId() {
         return cId;

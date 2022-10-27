@@ -2,6 +2,9 @@ package com.simplon.marjane.entity;
 
 import jakarta.persistence.*;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "sub_category", schema = "public", catalog = "marjane")
 public class SubCategoryEntity {
@@ -15,6 +18,17 @@ public class SubCategoryEntity {
     @Basic
     @Column(name = "sc_category")
     private long scCategory;
+
+    @OneToMany(mappedBy = "pSubCategory")
+    private Set<PromotionEntity> promotions = new LinkedHashSet<>();
+
+    public Set<PromotionEntity> getPromotions() {
+        return promotions;
+    }
+
+    public void setPromotions(Set<PromotionEntity> promotions) {
+        this.promotions = promotions;
+    }
 
     public long getScId() {
         return scId;

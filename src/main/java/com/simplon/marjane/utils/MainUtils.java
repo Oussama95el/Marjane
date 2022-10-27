@@ -1,10 +1,14 @@
 package com.simplon.marjane.utils;
 
 import com.simplon.marjane.Dao.AdminDao;
+import com.simplon.marjane.Dao.RespRayonDao;
 import com.simplon.marjane.Dao.SuperAdminDao;
 import com.simplon.marjane.entity.AdminEntity;
+import com.simplon.marjane.entity.RespRayonEntity;
 
 import java.util.Scanner;
+
+import static com.simplon.marjane.utils.Menus.createResponsibleRayon;
 
 public class MainUtils {
 
@@ -65,14 +69,47 @@ public class MainUtils {
         // adminWorkflow display menu login and admin main menu
         Object[] adminLogin = (Object[]) Menus.adminLoginMenu();
         AdminDao adminDao = new AdminDao();
-        adminDao.validateAdminLogin(adminLogin);
+        if (adminDao.validateAdminLogin(adminLogin)) {
+            do {
+                choice = Menus.adminMainMenu();
+                switch (choice) {
+                    case 1:
+                        // Create Responsable Rayon
+                        RespRayonDao respRayonDao = new RespRayonDao();
+                         RespRayonEntity newRespRayon = Menus.createResponsibleRayon();
+                         String password = newRespRayon.getRrPassword();
+                         if (respRayonDao.createRespRayon(newRespRayon)) {
+                             println("Responsable Rayon created successfully");
+                             // send email with login and password information
+                             SimpleEmail.sendSimpleEmail("oussamaelbechari@gmail.com", "Welcome to Marjane",
+                                     "Your email is : " + newRespRayon.getRrEmail() + " and your password is: " + password);
+                         } else {
+                             println("Responsable Rayon creation failed");
+                         }
+                        break;
+                    case 2:
+                        // Create Promotion
+                        break;
+                    case 3:
+                        // Create statistics
+                        break;
+                    case 4:
+                        // Exit
+                        break;
+                    default:
+                        println("Invalid choice");
+                        break;
+                }
+
+            } while (choice != 6) ;
+        } else {
+            println("Admin login failed");
+        }
     }
 
     public static void respRayonWorkflow(){
         // respRayonWorkflow display menu login and manager main menu
 
     }
-
-
 
 }

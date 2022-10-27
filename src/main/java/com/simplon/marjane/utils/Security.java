@@ -9,7 +9,7 @@ public class Security {
      * hash password using bcrypt algorithm
      * @param password String
      */
-    protected static String hashPassword(String password) {
+    public static String hashPassword(String password) {
         return BCrypt.hashpw(password, BCrypt.gensalt());
     }
     /**

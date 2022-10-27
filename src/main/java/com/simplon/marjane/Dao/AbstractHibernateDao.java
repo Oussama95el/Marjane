@@ -33,10 +33,10 @@ public abstract class AbstractHibernateDao<T extends Serializable> {
                 });
             }
     
-        public void create(T entity) {
-            jpaService.runInTransaction(entityManager -> {
+        public boolean create(T entity) {
+            return jpaService.runInTransaction(entityManager -> {
                 entityManager.persist(entity);
-                return null;
+                return true;
             });
         }
     
@@ -65,18 +65,6 @@ public abstract class AbstractHibernateDao<T extends Serializable> {
             });
         }
 
-        // function that take object of email and password and check by query if the email and password are in the database
-//        public boolean validateLogin(Object[] login) {
-//            String email = (String) login[0];
-//            String password = (String) login[1];
-//            println(tableName);
-//            return jpaService.runInTransaction(entityManager -> {
-//                return entityManager.createQuery(" from " + tableName + " WHERE sa_email = :email and sa_password = :password")
-//                        .setParameter("email", email)
-//                        .setParameter("password", password)
-//                        .getResultList().size() > 0;
-//            });
-//        }
 
 
 

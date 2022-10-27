@@ -7,6 +7,7 @@ import java.util.List;
 
 import static com.simplon.marjane.utils.MainUtils.println;
 import static com.simplon.marjane.utils.Security.checkPassword;
+import static com.simplon.marjane.utils.Security.hashPassword;
 
 public class AdminDao extends AbstractHibernateDao<AdminEntity> {
 
@@ -56,6 +57,7 @@ public class AdminDao extends AbstractHibernateDao<AdminEntity> {
 
     // create admin
     public void createAdmin(AdminEntity admin) {
+        admin.setaPassword(hashPassword(admin.getaPassword()));
         create(admin);
     }
 

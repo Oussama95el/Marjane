@@ -2,6 +2,9 @@ package com.simplon.marjane.entity;
 
 import jakarta.persistence.*;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "city", schema = "public", catalog = "marjane")
 public class CityEntity {
@@ -12,6 +15,17 @@ public class CityEntity {
     @Basic
     @Column(name = "c_nom")
     private String cNom;
+
+    @OneToMany(mappedBy = "bCity")
+    private Set<BranchEntity> branches = new LinkedHashSet<>();
+
+    public Set<BranchEntity> getBranches() {
+        return branches;
+    }
+
+    public void setBranches(Set<BranchEntity> branches) {
+        this.branches = branches;
+    }
 
     public long getcId() {
         return cId;

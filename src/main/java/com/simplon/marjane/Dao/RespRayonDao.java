@@ -4,6 +4,8 @@ import com.simplon.marjane.entity.RespRayonEntity;
 
 import java.util.List;
 
+import static com.simplon.marjane.utils.Security.hashPassword;
+
 public class RespRayonDao extends AbstractHibernateDao<RespRayonEntity> {
 
     public RespRayonDao() {
@@ -48,8 +50,10 @@ public class RespRayonDao extends AbstractHibernateDao<RespRayonEntity> {
      * Create respRayon.
      * @param respRayon RespRayonEntity
      */
-    public void createRespRayon(RespRayonEntity respRayon) {
-        create(respRayon);
+    public  boolean createRespRayon(RespRayonEntity respRayon) {
+        // hash password
+        respRayon.setRrPassword(hashPassword(respRayon.getRrPassword()));
+       return create(respRayon);
     }
 
     // update respRayon

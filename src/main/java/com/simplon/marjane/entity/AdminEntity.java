@@ -3,6 +3,8 @@ package com.simplon.marjane.entity;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "admin", schema = "public", catalog = "marjane")
@@ -20,6 +22,17 @@ public class AdminEntity implements Serializable {
     @Basic
     @Column(name = "a_password")
     private String aPassword;
+
+    @OneToMany(mappedBy = "bAdmin")
+    private Set<BranchEntity> branches = new LinkedHashSet<>();
+
+    public Set<BranchEntity> getBranches() {
+        return branches;
+    }
+
+    public void setBranches(Set<BranchEntity> branches) {
+        this.branches = branches;
+    }
 
     public long getaId() {
         return aId;
