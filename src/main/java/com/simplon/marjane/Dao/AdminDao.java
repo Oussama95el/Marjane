@@ -56,9 +56,9 @@ public class AdminDao extends AbstractHibernateDao<AdminEntity> {
     }
 
     // create admin
-    public void createAdmin(AdminEntity admin) {
+    public boolean createAdmin(AdminEntity admin) {
         admin.setaPassword(hashPassword(admin.getaPassword()));
-        create(admin);
+        return create(admin);
     }
 
     // update admin

@@ -1,121 +1,135 @@
 package com.simplon.marjane.entity;
 
+import com.sun.istack.Nullable;
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "promotion", schema = "public", catalog = "marjane")
+@Table(name = "promotion", schema = "public")
 public class PromotionEntity implements Serializable {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "p_id")
-    private long pId;
-    @Basic
-    @Column(name = "p_category")
-    private long pCategory;
-    @Basic
-    @Column(name = "p_sub_category")
-    private long pSubCategory;
-    @Basic
-    @Column(name = "p_start_date")
-    private Date pStartDate;
-    @Basic
-    @Column(name = "p_expire_date")
-    private Date pExpireDate;
-    @Basic
-    @Column(name = "p_rate")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "p_id", nullable = false)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "p_category", nullable = false)
+    private CategoryEntity pCategory;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "p_sub_category", nullable = false)
+    @Nullable
+    private SubCategoryEntity pSubCategory;
+
+    @Column(name = "p_start_date", nullable = false)
+    private LocalDate pStartDate;
+
+    @Column(name = "p_expire_date", nullable = false)
+    private LocalDate pExpireDate;
+
+    @Column(name = "p_rate", nullable = false, precision = 5, scale = 2)
     private BigDecimal pRate;
-    @Basic
+
     @Column(name = "p_point_fidelite")
     private Integer pPointFidelite;
 
-    public long getpId() {
-        return pId;
+    @Column(name = "p_status", length = 100)
+    private String pStatus;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setpId(long pId) {
-        this.pId = pId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public long getpCategory() {
+    public CategoryEntity getPCategory() {
         return pCategory;
     }
 
-    public void setpCategory(long pCategory) {
+    public void setPCategory(CategoryEntity pCategory) {
         this.pCategory = pCategory;
     }
 
-    public long getpSubCategory() {
+    public SubCategoryEntity getPSubCategory() {
         return pSubCategory;
     }
 
-    public void setpSubCategory(long pSubCategory) {
+    public void setPSubCategory(SubCategoryEntity pSubCategory) {
         this.pSubCategory = pSubCategory;
     }
 
-    public Date getpStartDate() {
+    public LocalDate getPStartDate() {
         return pStartDate;
     }
 
-    public void setpStartDate(Date pStartDate) {
+    public void setPStartDate(LocalDate pStartDate) {
         this.pStartDate = pStartDate;
     }
 
-    public Date getpExpireDate() {
+    public LocalDate getPExpireDate() {
         return pExpireDate;
     }
 
-    public void setpExpireDate(Date pExpireDate) {
+    public void setPExpireDate(LocalDate pExpireDate) {
         this.pExpireDate = pExpireDate;
     }
 
-    public BigDecimal getpRate() {
+    public BigDecimal getPRate() {
         return pRate;
     }
 
-    public void setpRate(BigDecimal pRate) {
+    public void setPRate(BigDecimal pRate) {
         this.pRate = pRate;
     }
 
-    public Integer getpPointFidelite() {
+    public Integer getPPointFidelite() {
         return pPointFidelite;
     }
 
-    public void setpPointFidelite(Integer pPointFidelite) {
+    public void setPPointFidelite(Integer pPointFidelite) {
         this.pPointFidelite = pPointFidelite;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        PromotionEntity that = (PromotionEntity) o;
-
-        if (pId != that.pId) return false;
-        if (pCategory != that.pCategory) return false;
-        if (pSubCategory != that.pSubCategory) return false;
-        if (pStartDate != null ? !pStartDate.equals(that.pStartDate) : that.pStartDate != null) return false;
-        if (pExpireDate != null ? !pExpireDate.equals(that.pExpireDate) : that.pExpireDate != null) return false;
-        if (pRate != null ? !pRate.equals(that.pRate) : that.pRate != null) return false;
-        if (pPointFidelite != null ? !pPointFidelite.equals(that.pPointFidelite) : that.pPointFidelite != null)
-            return false;
-
-        return true;
+    public String getPStatus() {
+        return pStatus;
     }
 
+    public void setPStatus(String pStatus) {
+        this.pStatus = pStatus;
+    }
+
+
+    public PromotionEntity(CategoryEntity pCategory, SubCategoryEntity pSubCategory, LocalDate pStartDate, LocalDate pExpireDate, BigDecimal pRate, Integer pPointFidelite) {
+        this.pCategory = pCategory;
+        this.pSubCategory = pSubCategory;
+        this.pStartDate = pStartDate;
+        this.pExpireDate = pExpireDate;
+        this.pRate = pRate;
+        this.pPointFidelite = pPointFidelite;
+    }
+    public PromotionEntity() {
+    }
+
+    // toString
     @Override
-    public int hashCode() {
-        int result = (int) (pId ^ (pId >>> 32));
-        result = 31 * result + (int) (pCategory ^ (pCategory >>> 32));
-        result = 31 * result + (int) (pSubCategory ^ (pSubCategory >>> 32));
-        result = 31 * result + (pStartDate != null ? pStartDate.hashCode() : 0);
-        result = 31 * result + (pExpireDate != null ? pExpireDate.hashCode() : 0);
-        result = 31 * result + (pRate != null ? pRate.hashCode() : 0);
-        result = 31 * result + (pPointFidelite != null ? pPointFidelite.hashCode() : 0);
-        return result;
+    public String toString() {
+        return
+                "\n--------------------------- PromotionEntity  " + id +" -------------------------"+
+                "\n Category = " + pCategory.getcName() +
+                "\n SubCategory = " + pSubCategory.getScName() +
+                "\n StartDate = " + pStartDate +
+                "\n ExpireDate = " + pExpireDate +
+                "\n Rate = " + pRate +
+                "\n Point Fidelite =" + pPointFidelite +
+                "\n Status = " + pStatus;
     }
 }

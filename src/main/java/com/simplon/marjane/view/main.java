@@ -13,7 +13,6 @@ import static com.simplon.marjane.utils.MainUtils.*;
 public class main {
 
     private static int choice;
-    private static JpaService jpaService = new JpaService();
     public static void main(String[] args) {
             choice = Menus.mainMenu();
             if (choice == 1) {

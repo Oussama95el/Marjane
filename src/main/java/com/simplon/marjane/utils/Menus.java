@@ -1,11 +1,14 @@
 package com.simplon.marjane.utils;
 
 import com.simplon.marjane.Dao.CategoryDao;
-import com.simplon.marjane.entity.AdminEntity;
-import com.simplon.marjane.entity.CategoryEntity;
-import com.simplon.marjane.entity.RespRayonEntity;
+import com.simplon.marjane.Dao.SubCategoryDao;
+import com.simplon.marjane.entity.*;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 public class Menus {
 
@@ -79,6 +82,83 @@ public class Menus {
         MainUtils.print("Enter your choice: ");
         return MainUtils.scan().nextInt();
     }
+    // Promotions menu View, Creat, Update, Delete, Exit
+    public static int promotionsMenu() {
+        MainUtils.println("------------------- Promotions Menu -------------------");
+        MainUtils.println("1. View Promotion");
+        MainUtils.println("2. Create Promotion");
+        MainUtils.println("3. Update Promotion");
+        MainUtils.println("4. Delete Promotion");
+        MainUtils.println("5. Exit");
+        MainUtils.println("-------------------------------------------------");
+        MainUtils.print("Enter your choice: ");
+        return MainUtils.scan().nextInt();
+    }
+    // Create promotion
+    public static PromotionEntity createNewPromotion(PromotionEntity promotion) {
+        List<CategoryEntity> categories = new CategoryDao().getAllCategories();
+//        List<SubCategoryEntity> subCategories = new CategoryDao().getAllSubCategories();
+        MainUtils.println("------------------- Create Promotion Menu -------------------");
+        //display categories
+        MainUtils.println("Enter the promotion Category: ");
+        for (CategoryEntity category : categories) {
+            MainUtils.println(category.getcId() + ". " + category.getcName());
+        }
+        long cId = MainUtils.scan().nextLong();
+        // get category object by id
+        CategoryEntity category = new CategoryDao().getCategoryById(cId);
+        assert category != null;
+        // set category to promotion
+        promotion.setPCategory(category);
+        // check if category has sub categories
+        MainUtils.println("Do you want to add a subCategory? (y/n)");
+        String answer = MainUtils.scan().nextLine();
+        // if yes
+        assert Objects.equals(answer, "y") || Objects.equals(answer, "n");
+        if (answer.equals("y")) {
+            MainUtils.println("Enter the promotion subCategory: ");
+            for (SubCategoryEntity subCategory : category.getSubCategories()) {
+                MainUtils.println(subCategory.getScId() + ". " + subCategory.getScName());
+            }
+            long scId = MainUtils.scan().nextLong();
+            SubCategoryEntity subCategory = new SubCategoryDao().getSubCategoryById(scId);
+            assert subCategory != null;
+            promotion.setPSubCategory(subCategory);
+        }else {
+            promotion.setPSubCategory(null);
+        }
+        // set Localdate to promotion
+        MainUtils.println("Enter the promotion start date: ");
+        // enter year
+        MainUtils.println("Enter the year: ");
+        int year = MainUtils.scan().nextInt();
+        // enter month
+        MainUtils.println("Enter the month: ");
+        int month = MainUtils.scan().nextInt();
+        // enter day
+        MainUtils.println("Enter the day: ");
+        int day = MainUtils.scan().nextInt();
+        promotion.setPStartDate(LocalDate.of(year, month, day));
+
+        // set Localdate to promotion
+        MainUtils.println("Enter the promotion end date: ");
+        // enter year
+        MainUtils.println("Enter the year: ");
+        year = MainUtils.scan().nextInt();
+        // enter month
+        MainUtils.println("Enter the month: ");
+        month = MainUtils.scan().nextInt();
+        // enter day
+        MainUtils.println("Enter the day: ");
+        day = MainUtils.scan().nextInt();
+        promotion.setPExpireDate(LocalDate.of(year, month, day));
+        MainUtils.println("Enter the promotion rate: ");
+        int rate = MainUtils.scan().nextInt();
+        // set rate to promotion using decimal format
+        promotion.setPRate(new BigDecimal(String.valueOf(rate)));
+        promotion.setPPointFidelite(rate*10);
+        return promotion;
+    }
 // Manager main menu  Promotions, Statistics, Disconnect
     public static int managerMainMenu() {
         MainUtils.println("------------------- Manager Main Menu -------------------");
@@ -104,6 +184,7 @@ public class Menus {
     // Create Responsible Rayon
     public static RespRayonEntity createResponsibleRayon() {
         List<CategoryEntity> categories = new CategoryDao().getAllCategories();
+
         MainUtils.println("------------------- Create Responsible Rayon -------------------");
         MainUtils.println("Enter Responsible Rayon Name: ");
         String name = MainUtils.scan().nextLine();
@@ -118,7 +199,22 @@ public class Menus {
         });
         MainUtils.println("Enter Category id: ");
         int cId = MainUtils.scan().nextInt();
+//        List<SubCategoryEntity> subCategories = new CategoryDao().getAllSubCategoriesByCategoryId(cId);
+//        assert subCategories != null;
+//        //stream to print all subCategories and get the subCategory id
+//        MainUtils.println("Enter Responsible Rayon SubCategory: ");
+//        subCategories.forEach(subCategory -> {
+//            MainUtils.println("SubCategory id: " + subCategory.getScId() + " SubCategory name: " + subCategory.getScName());
+//        });
+//        MainUtils.println("Enter SubCategory id: ");
+
+
+
         return new RespRayonEntity(name, email, password,cId);
     }
 
+    // function LocalDate that take parameter int year, int month, int day
+    public static LocalDate setLocalDate(int year, int month, int day) {
+        return LocalDate.of(year, month, day);
+    }
 }

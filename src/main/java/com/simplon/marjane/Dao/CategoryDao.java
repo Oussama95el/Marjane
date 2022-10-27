@@ -50,6 +50,13 @@ public class CategoryDao extends AbstractHibernateDao<CategoryEntity> {
             deleteById(id);
         }
 
-
+        // get all subcategories by category id
+        public List getAllSubCategoriesByCategoryId(long id) {
+            return jpaService.runInTransaction(entityManager -> {
+                return entityManager.createQuery("select s from SubCategoryEntity s WHERE s.scCategory = :id", CategoryEntity.class)
+                        .setParameter("id", id)
+                        .getResultList();
+            });
+        }
 }
 

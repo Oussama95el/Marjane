@@ -1,14 +1,15 @@
 package com.simplon.marjane.utils;
 
 import com.simplon.marjane.Dao.AdminDao;
+import com.simplon.marjane.Dao.PromotionDao;
 import com.simplon.marjane.Dao.RespRayonDao;
 import com.simplon.marjane.Dao.SuperAdminDao;
 import com.simplon.marjane.entity.AdminEntity;
+import com.simplon.marjane.entity.PromotionEntity;
 import com.simplon.marjane.entity.RespRayonEntity;
 
+import java.util.List;
 import java.util.Scanner;
-
-import static com.simplon.marjane.utils.Menus.createResponsibleRayon;
 
 public class MainUtils {
 
@@ -41,10 +42,23 @@ public class MainUtils {
                         // Create Manager
                         AdminEntity newManager = Menus.createManager();
                         AdminDao adminDao = new AdminDao();
-                        adminDao.createAdmin(newManager);
+                        String password = newManager.getaPassword();
+                        if (adminDao.createAdmin(newManager)){
+                            println("Manager created successfully");
+                            SimpleEmail.sendSimpleEmail("oussamaelbechari@gmail.com",
+                                    "Welcome to Marjane",
+                                    "Hello, admin " + newManager.getaName() + " this email containes your login information <br>"
+                                            + " your email is: <B>" + newManager.getaEmail() + "</B> <br>"
+                                            + " your password is: <B>" + password + "</B> <br>");
+                        } else {
+                            println("Manager not created");
+                        }
                         break;
                     case 2:
                         // Promotions
+                        PromotionDao promotionDao = new PromotionDao();//find all promotions and display them
+                        List<PromotionEntity> promotions = promotionDao.findAll();
+
                         break;
                     case 3:
                         // Statistics
@@ -89,6 +103,38 @@ public class MainUtils {
                         break;
                     case 2:
                         // Create Promotion
+                        choice = Menus.promotionsMenu();
+                        // while loop to display promotions menu
+                        while (choice != 4) {
+                            PromotionDao promotionDao = new PromotionDao();
+                            switch (choice) {
+                                case 1:
+                                    // view all promotions
+                                    List<PromotionEntity> promotions = promotionDao.findAll();
+                                    for (PromotionEntity promotion : promotions) {
+                                        println(promotion.toString());
+                                    }
+                                case 2:
+                                    // Create Promotion using setters
+                                    PromotionEntity newPromotion = Menus.createNewPromotion(new PromotionEntity());
+                                    if (promotionDao.createPromotion(newPromotion)) {
+                                        println("Promotion created successfully");
+                                    } else {
+                                        println("Promotion creation failed");
+                                    }
+                                    break;
+                                case 3:
+                                    // Update Promotion
+                                    break;
+                                case 4:
+                                    // Delete Promotion
+                                    break;
+                                default:
+                                    println("Invalid choice");
+                                    break;
+                            }
+                            choice = Menus.promotionsMenu();
+                        }
                         break;
                     case 3:
                         // Create statistics

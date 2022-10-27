@@ -2,12 +2,13 @@ package com.simplon.marjane.entity;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "sub_category", schema = "public", catalog = "marjane")
-public class SubCategoryEntity {
+public class SubCategoryEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "sc_id")

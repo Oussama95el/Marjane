@@ -6,6 +6,7 @@ import com.simplon.marjane.entity.SuperAdminEntity;
 import java.util.List;
 
 import static com.simplon.marjane.utils.MainUtils.print;
+import static com.simplon.marjane.utils.Security.hashPassword;
 
 public class SuperAdminDao extends AbstractHibernateDao<SuperAdminEntity> {
 
@@ -52,6 +53,7 @@ public class SuperAdminDao extends AbstractHibernateDao<SuperAdminEntity> {
     public void deleteSuperAdminById(long id) {
         deleteById(id);
     }
+
 
 
 }
