@@ -1,5 +1,3 @@
-CREATE TYPE type_user AS ENUM ('AG', 'A', 'RR');
-
 CREATE TABLE super_admin(
 sa_id BIGSERIAL NOT NULL PRIMARY KEY,
 sa_name VARCHAR(100) NOT NULL,
@@ -35,6 +33,7 @@ p_start_date DATE NOT NULL,
 p_expire_date DATE NOT NULL,
 p_rate decimal(5,2) NOT NULL,
 p_point_fidelite int,
+p_staus Varchar(100) DEFAULT 'PENDING'
 
 FOREIGN KEY (p_category) REFERENCES category(c_id) ON UPDATE CASCADE ON DELETE CASCADE ,
 FOREIGN KEY (p_sub_category) REFERENCES sub_category(sc_id) ON UPDATE CASCADE ON DELETE CASCADE
@@ -70,3 +69,14 @@ c_id BIGSERIAL NOT NULL PRIMARY KEY,
 c_nom VARCHAR(100) NOT NULL
 );
 
+
+CREATE TABLE comment(
+c_id BIGSERIAL NOT NULL PRIMARY KEY,
+c_content VARCHAR(255) NOT NULL,
+c_date date NOT NULL DEFAULT CURRENT_DATE,
+c_user INT NOT NULL,
+c_promotion INT NOT NULL,
+PRIMARY KEY (c_id),
+FOREIGN KEY (c_user) REFERENCES resp_rayon(rr_id),
+FOREIGN KEY (c_promotion) REFERENCES promotion(p_id)	
+);
