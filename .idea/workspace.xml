@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6bebe22-1318-4345-b602-2fb75d1dd3a5" name="Changes" comment="HOT 004:: adding a unit test and promotions condition methods">
+    <list default="true" id="e6bebe22-1318-4345-b602-2fb75d1dd3a5" name="Changes" comment="HOT 004:: adding DB file">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9b0601f7-543e-4a55-9792-09eb979f90e8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9b0601f7-543e-4a55-9792-09eb979f90e8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9b0601f7-543e-4a55-9792-09eb979f90e8/storage_v2/_src_/database/marjane.jG8FMg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9b0601f7-543e-4a55-9792-09eb979f90e8/storage_v2/_src_/database/marjane.jG8FMg/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/Dao/PromotionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/Dao/PromotionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/entity/PromotionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/entity/PromotionEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/utils/MainUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/utils/MainUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/utils/Menus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/utils/Menus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/simplon/marjane/Dao/PromotionsTest/PromotionDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/simplon/marjane/Dao/PromotionsTest/PromotionDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/simplon/marjane/Dao/PromotionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/simplon/marjane/Dao/PromotionDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/simplon/marjane/entity/PromotionEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/simplon/marjane/entity/PromotionEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/simplon/marjane/utils/MainUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/simplon/marjane/utils/MainUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/simplon/marjane/utils/Menus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/simplon/marjane/utils/Menus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/simplon/marjane/Dao/PromotionsTest/PromotionDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/simplon/marjane/Dao/PromotionsTest/PromotionDaoTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,12 +40,16 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2GcesQawEHXlpvRlnx7uBNmfuNJ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "JPA.DatabaseSchemaImportDialog": "9b0601f7-543e-4a55-9792-09eb979f90e8",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -74,33 +89,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="MainUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.simplon.marjane.utils.MainUtils" />
-      <module name="App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.simplon.marjane.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SuperAdminDao" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.simplon.marjane.Dao.SuperAdminDao" />
-      <module name="App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.simplon.marjane.Dao.PromotionsTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.PromotionDaoTest.updatePromotionStatusBasedOnExpirationDateTest">
     <configuration name="PromotionDaoTest.createPromotion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="App" />
       <extension name="coverage">
@@ -117,6 +106,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PromotionDaoTest.createPromotionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.simplon.marjane.Dao.PromotionsTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.simplon.marjane.Dao.PromotionsTest" />
+      <option name="MAIN_CLASS_NAME" value="com.simplon.marjane.Dao.PromotionsTest.PromotionDaoTest" />
+      <option name="METHOD_NAME" value="createPromotionTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PromotionDaoTest.getPromotionById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="App" />
       <extension name="coverage">
@@ -128,6 +133,22 @@
       <option name="PACKAGE_NAME" value="com.simplon.marjane.Dao.PromotionsTest" />
       <option name="MAIN_CLASS_NAME" value="com.simplon.marjane.Dao.PromotionsTest.PromotionDaoTest" />
       <option name="METHOD_NAME" value="getPromotionById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PromotionDaoTest.updatePromotionStatusBasedOnExpirationDateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.simplon.marjane.Dao.PromotionsTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.simplon.marjane.Dao.PromotionsTest" />
+      <option name="MAIN_CLASS_NAME" value="com.simplon.marjane.Dao.PromotionsTest.PromotionDaoTest" />
+      <option name="METHOD_NAME" value="updatePromotionStatusBasedOnExpirationDateTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -151,11 +172,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PromotionDaoTest.updatePromotionStatusBasedOnExpirationDateTest" />
         <item itemvalue="JUnit.PromotionDaoTest.updatePromotionStatusBasedOnTimeTest" />
+        <item itemvalue="JUnit.PromotionDaoTest.createPromotionTest" />
         <item itemvalue="JUnit.PromotionDaoTest.getPromotionById" />
         <item itemvalue="JUnit.PromotionDaoTest.createPromotion" />
-        <item itemvalue="Application.SuperAdminDao" />
-        <item itemvalue="Application.MainUtils" />
       </list>
     </recent_temporary>
   </component>
@@ -169,7 +190,7 @@
       <updated>1666692506009</updated>
       <workItem from="1666692507946" duration="2194000" />
       <workItem from="1666694817564" duration="41768000" />
-      <workItem from="1666867848144" duration="20534000" />
+      <workItem from="1666867848144" duration="25757000" />
     </task>
     <task id="LOCAL-00001" summary="adding utils and menu functions">
       <created>1666695225951</created>
@@ -234,7 +255,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666950968061</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="HOT 004:: adding DB file">
+      <created>1666951129041</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1666951129041</updated>
+    </task>
+    <task id="LOCAL-00011" summary="HOT 004:: adding DB file">
+      <created>1666951402524</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1666951402524</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,6 +287,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="adding utils and menu functions" />
     <MESSAGE value="HOT :: setup Dao AbstractHibernateDao class with CRUD methods and other validation methods" />
     <MESSAGE value="HOT :: adding methods to AdminDao class" />
@@ -260,6 +296,7 @@
     <MESSAGE value="HOT 004:: adding a lot of changes to describe" />
     <MESSAGE value="HOT 004:: adding a unit test with dependency needed" />
     <MESSAGE value="HOT 004:: adding a unit test and promotions condition methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="HOT 004:: adding a unit test and promotions condition methods" />
+    <MESSAGE value="HOT 004:: adding DB file" />
+    <option name="LAST_COMMIT_MESSAGE" value="HOT 004:: adding DB file" />
   </component>
 </project>

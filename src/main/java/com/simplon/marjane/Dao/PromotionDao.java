@@ -1,15 +1,14 @@
 package com.simplon.marjane.Dao;
 
-import com.simplon.marjane.entity.CategoryEntity;
 import com.simplon.marjane.entity.PromotionEntity;
-import com.simplon.marjane.entity.SubCategoryEntity;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+
+import static com.simplon.marjane.utils.MainUtils.print;
+import static com.simplon.marjane.utils.MainUtils.println;
 
 public class PromotionDao extends AbstractHibernateDao<PromotionEntity>{
 
@@ -50,7 +49,7 @@ public class PromotionDao extends AbstractHibernateDao<PromotionEntity>{
     // if current Time is between 8 and 12 update promotion status is possible
     public boolean updatePromotionStatusBasedOnTime(PromotionEntity promotion, String status) {
         LocalTime currentTime = LocalTime.now();
-        if (currentTime.isAfter(LocalTime.of(8, 0)) && currentTime.isBefore(LocalTime.of(12, 0))) {
+        if (currentTime.isAfter(LocalTime.of(8, 0)) && currentTime.isBefore(LocalTime.of(12, 30))) {
             // create update query where promotion category is equal to promotion category
             return jpaService.runInTransaction(entityManager -> {
                 entityManager.createQuery("update PromotionEntity p set p.pStatus = :status where p.pCategory = :category AND p.id = :id")
@@ -69,10 +68,16 @@ public class PromotionDao extends AbstractHibernateDao<PromotionEntity>{
     // function to update automatically promotion status based on expiration date if status is pending change to expired
     public void updatePromotionStatusBasedOnExpirationDate() {
         LocalDate currentDate = LocalDate.now();
-        jpaService.runInTransaction(entityManager -> {
-            return entityManager.createQuery("update PromotionEntity p set p.pStatus = 'expired' where p.pExpireDate < :currentDate AND p.pStatus = 'pending'")
-                    .setParameter("currentDate", currentDate)
-                    .executeUpdate();
+        PromotionDao promotionDao = new PromotionDao();
+        List<PromotionEntity> promotions = promotionDao.getAllPromotions();
+        promotions.forEach(promotion -> {
+            if (promotion.getPStatus().equals("PENDING") && promotion.getPExpireDate().isBefore(currentDate)) {
+                jpaService.runInTransaction(entityManager -> {
+                    return entityManager.createQuery("update PromotionEntity p set p.pStatus = 'EXPIRED' where p.id = :id")
+                            .setParameter("id", promotion.getId())
+                            .executeUpdate();
+                });
+            }
         });
     }
 }

@@ -56,12 +56,19 @@ public class MainUtils {
                         break;
                     case 2:
                         // Promotions
+                        println("-------------------- List Of Promotions ---------------------");
                         PromotionDao promotionDao = new PromotionDao();//find all promotions and display them
                         List<PromotionEntity> promotions = promotionDao.findAll();
+                        for (PromotionEntity promotion : promotions) {
+                            println(promotion.toString());
+                        }
 
                         break;
                     case 3:
                         // Statistics
+                        // TODO : Statistics Menu and methods to display statistics of Marjane app and Users
+                        // print this action is in maintenance
+                        println("Statistics in maintenance");
                         break;
                     case 4:
                         // Exit
@@ -85,7 +92,7 @@ public class MainUtils {
         AdminDao adminDao = new AdminDao();
         if (adminDao.validateAdminLogin(adminLogin)) {
             do {
-                choice = Menus.adminMainMenu();
+                choice = Menus.managerMenu();
                 switch (choice) {
                     case 1:
                         // Create Responsable Rayon
@@ -96,13 +103,13 @@ public class MainUtils {
                              println("Responsable Rayon created successfully");
                              // send email with login and password information
                              SimpleEmail.sendSimpleEmail("oussamaelbechari@gmail.com", "Welcome to Marjane",
-                                     "Your email is : " + newRespRayon.getRrEmail() + " and your password is: " + password);
+                                     "Your email is : <B> " + newRespRayon.getRrEmail() + "</B> and your password is: <B>" + password +"</B>");
                          } else {
                              println("Responsable Rayon creation failed");
                          }
                         break;
                     case 2:
-                        // Create Promotion
+                        // Promotion menu
                         choice = Menus.promotionsMenu();
                         // while loop to display promotions menu
                         while (choice != 4) {

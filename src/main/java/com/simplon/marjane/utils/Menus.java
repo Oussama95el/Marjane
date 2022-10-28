@@ -5,7 +5,6 @@ import com.simplon.marjane.Dao.SubCategoryDao;
 import com.simplon.marjane.entity.*;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
@@ -72,7 +71,7 @@ public class Menus {
         return MainUtils.scan().nextInt();
     }
     // Admin main menu Creat Responsible Rayon, Promotions, Statistics, Disconnect
-    public static int adminMainMenu() {
+    public static int managerMenu() {
         MainUtils.println("------------------- Admin Main Menu -------------------");
         MainUtils.println("1. Create Responsible Rayon");
         MainUtils.println("2. Promotions");
@@ -85,7 +84,7 @@ public class Menus {
     // Promotions menu View, Creat, Update, Delete, Exit
     public static int promotionsMenu() {
         MainUtils.println("------------------- Promotions Menu -------------------");
-        MainUtils.println("1. View Promotion");
+        MainUtils.println("1. View Promotions");
         MainUtils.println("2. Create Promotion");
         MainUtils.println("3. Update Promotion");
         MainUtils.println("4. Delete Promotion");

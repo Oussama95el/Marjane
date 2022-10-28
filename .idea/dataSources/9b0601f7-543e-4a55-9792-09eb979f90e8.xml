@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.43">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <IntrospectionStateNumber>1972</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2210</IntrospectionStateNumber>
       <ServerVersion>14.5</ServerVersion>
       <StartupTime>1666634271</StartupTime>
       <TimeZones>true ACDT
@@ -269,7 +269,7 @@ false Antarctica/Vostok
 true Arctic/Longyearbyen
 false Asia/Aden
 false Asia/Almaty
-true Asia/Amman
+false Asia/Amman
 false Asia/Anadyr
 false Asia/Aqtau
 false Asia/Aqtobe
@@ -291,15 +291,15 @@ false Asia/Chongqing
 false Asia/Chungking
 false Asia/Colombo
 false Asia/Dacca
-true Asia/Damascus
+false Asia/Damascus
 false Asia/Dhaka
 false Asia/Dili
 false Asia/Dubai
 false Asia/Dushanbe
 true Asia/Famagusta
-true Asia/Gaza
+false Asia/Gaza
 false Asia/Harbin
-true Asia/Hebron
+false Asia/Hebron
 false Asia/Ho_Chi_Minh
 false Asia/Hong_Kong
 false Asia/Hovd
@@ -808,7 +808,7 @@ false Zulu
 13388||10|C|G
 13388||-9223372036854775808|U|G
 13388||10|U|G</Grants>
-      <IntrospectionStateNumber>1972</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2210</IntrospectionStateNumber>
       <ObjectId>25293</ObjectId>
       <Relations>sequence|table|25305|25306|1
 sequence|table|25381|25382|1
@@ -4255,7 +4255,7 @@ sequence|table|26350|26351|1
     <schema id="265" parent="4" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1972</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2210</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>527</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -4658,7 +4658,17 @@ REJECTED</Labels>
       <RefTableName>resp_rayon</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="321" parent="286" name="comment_c_promotion_fkey">
+    <foreign-key id="321" parent="286" name="fkq1hc0x2riq3bd767w08pjpoqd">
+      <ColNames>c_user</ColNames>
+      <ObjectId>26382</ObjectId>
+      <RefColNames>rr_id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>1983</StateNumber>
+      <RefTableId>25445</RefTableId>
+      <RefTableName>resp_rayon</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <foreign-key id="322" parent="286" name="comment_c_promotion_fkey">
       <ColNames>c_promotion</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>26363</ObjectId>
@@ -4669,7 +4679,17 @@ REJECTED</Labels>
       <RefTableName>promotion</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <index id="322" parent="286" name="comment_pkey">
+    <foreign-key id="323" parent="286" name="fk8ebu9drkq539p5wrdveyyj4lj">
+      <ColNames>c_promotion</ColNames>
+      <ObjectId>26377</ObjectId>
+      <RefColNames>p_id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>1982</StateNumber>
+      <RefTableId>25422</RefTableId>
+      <RefTableName>promotion</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="324" parent="286" name="comment_pkey">
       <ColNames>c_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>26356</ObjectId>
@@ -4678,14 +4698,14 @@ REJECTED</Labels>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="323" parent="286" name="comment_pkey">
+    <key id="325" parent="286" name="comment_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>26357</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1971</StateNumber>
       <UnderlyingIndexId>26356</UnderlyingIndexId>
     </key>
-    <column id="324" parent="287" name="p_id">
+    <column id="326" parent="287" name="p_id">
       <DataType>bigint|0s</DataType>
       <DefaultExpression>nextval(&apos;promotion_p_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4693,7 +4713,7 @@ REJECTED</Labels>
       <StateNumber>1046</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="325" parent="287" name="p_category">
+    <column id="327" parent="287" name="p_category">
       <DataType>bigint|0s</DataType>
       <DefaultExpression>nextval(&apos;promotion_p_category_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4701,7 +4721,7 @@ REJECTED</Labels>
       <StateNumber>1046</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="326" parent="287" name="p_sub_category">
+    <column id="328" parent="287" name="p_sub_category">
       <DataType>bigint|0s</DataType>
       <DefaultExpression>nextval(&apos;promotion_p_sub_category_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4709,41 +4729,52 @@ REJECTED</Labels>
       <StateNumber>1046</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="327" parent="287" name="p_start_date">
+    <column id="329" parent="287" name="p_start_date">
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>1046</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="328" parent="287" name="p_expire_date">
+    <column id="330" parent="287" name="p_expire_date">
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StateNumber>1046</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="329" parent="287" name="p_rate">
+    <column id="331" parent="287" name="p_rate">
       <DataType>numeric(5,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StateNumber>1046</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="330" parent="287" name="p_point_fidelite">
+    <column id="332" parent="287" name="p_point_fidelite">
       <DataType>integer|0s</DataType>
       <Position>7</Position>
       <StateNumber>1046</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="331" parent="287" name="p_status">
+    <column id="333" parent="287" name="p_status">
       <DataType>varchar(100)|0s</DataType>
       <DefaultExpression>&apos;PENDING&apos;::character varying</DefaultExpression>
       <Position>8</Position>
       <StateNumber>1967</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="332" parent="287" name="promotion_p_category_fkey">
+    <foreign-key id="334" parent="287" name="fk2keq6uxewp4nmrmq567d0ymeq">
+      <ColNames>p_category</ColNames>
+      <ObjectId>26387</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>c_id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>1984</StateNumber>
+      <RefTableId>25382</RefTableId>
+      <RefTableName>category</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <foreign-key id="335" parent="287" name="promotion_p_category_fkey">
       <ColNames>p_category</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25430</ObjectId>
@@ -4756,7 +4787,18 @@ REJECTED</Labels>
       <RefTableName>category</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="333" parent="287" name="promotion_p_sub_category_fkey">
+    <foreign-key id="336" parent="287" name="fk8vkql2f5yajg10q98ta97dfjy">
+      <ColNames>p_sub_category</ColNames>
+      <ObjectId>26392</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>sc_id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>1985</StateNumber>
+      <RefTableId>25406</RefTableId>
+      <RefTableName>sub_category</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <foreign-key id="337" parent="287" name="promotion_p_sub_category_fkey">
       <ColNames>p_sub_category</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25435</ObjectId>
@@ -4769,7 +4811,7 @@ REJECTED</Labels>
       <RefTableName>sub_category</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <index id="334" parent="287" name="promotion_pkey">
+    <index id="338" parent="287" name="promotion_pkey">
       <ColNames>p_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25428</ObjectId>
@@ -4778,14 +4820,14 @@ REJECTED</Labels>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="335" parent="287" name="promotion_pkey">
+    <key id="339" parent="287" name="promotion_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25429</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1046</StateNumber>
       <UnderlyingIndexId>25428</UnderlyingIndexId>
     </key>
-    <column id="336" parent="288" name="rr_id">
+    <column id="340" parent="288" name="rr_id">
       <DataType>bigint|0s</DataType>
       <DefaultExpression>nextval(&apos;resp_rayon_rr_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4793,28 +4835,28 @@ REJECTED</Labels>
       <StateNumber>1051</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="337" parent="288" name="rr_name">
+    <column id="341" parent="288" name="rr_name">
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>1051</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="338" parent="288" name="rr_email">
+    <column id="342" parent="288" name="rr_email">
       <DataType>varchar(250)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>1051</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="339" parent="288" name="rr_password">
+    <column id="343" parent="288" name="rr_password">
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>1051</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="340" parent="288" name="rr_rayon">
+    <column id="344" parent="288" name="rr_rayon">
       <DataType>bigint|0s</DataType>
       <DefaultExpression>nextval(&apos;resp_rayon_rr_rayon_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4822,7 +4864,7 @@ REJECTED</Labels>
       <StateNumber>1051</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="341" parent="288" name="resp_rayon_rr_rayon_fkey">
+    <foreign-key id="345" parent="288" name="resp_rayon_rr_rayon_fkey">
       <ColNames>rr_rayon</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25454</ObjectId>
@@ -4835,7 +4877,7 @@ REJECTED</Labels>
       <RefTableName>category</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <index id="342" parent="288" name="resp_rayon_pkey">
+    <index id="346" parent="288" name="resp_rayon_pkey">
       <ColNames>rr_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25450</ObjectId>
@@ -4844,7 +4886,7 @@ REJECTED</Labels>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="343" parent="288" name="resp_rayon_rr_email_key">
+    <index id="347" parent="288" name="resp_rayon_rr_email_key">
       <ColNames>rr_email</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25452</ObjectId>
@@ -4855,20 +4897,20 @@ REJECTED</Labels>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="344" parent="288" name="resp_rayon_pkey">
+    <key id="348" parent="288" name="resp_rayon_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25451</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1051</StateNumber>
       <UnderlyingIndexId>25450</UnderlyingIndexId>
     </key>
-    <key id="345" parent="288" name="resp_rayon_rr_email_key">
+    <key id="349" parent="288" name="resp_rayon_rr_email_key">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25453</ObjectId>
       <StateNumber>1051</StateNumber>
       <UnderlyingIndexId>25452</UnderlyingIndexId>
     </key>
-    <column id="346" parent="289" name="sc_id">
+    <column id="350" parent="289" name="sc_id">
       <DataType>bigint|0s</DataType>
       <DefaultExpression>nextval(&apos;sub_category_sc_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4876,14 +4918,14 @@ REJECTED</Labels>
       <StateNumber>1042</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="347" parent="289" name="sc_name">
+    <column id="351" parent="289" name="sc_name">
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>1042</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="348" parent="289" name="sc_category">
+    <column id="352" parent="289" name="sc_category">
       <DataType>bigint|0s</DataType>
       <DefaultExpression>nextval(&apos;sub_category_sc_category_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4891,7 +4933,7 @@ REJECTED</Labels>
       <StateNumber>1042</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="349" parent="289" name="sub_category_sc_category_fkey">
+    <foreign-key id="353" parent="289" name="sub_category_sc_category_fkey">
       <ColNames>sc_category</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25413</ObjectId>
@@ -4904,7 +4946,7 @@ REJECTED</Labels>
       <RefTableName>category</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <index id="350" parent="289" name="sub_category_pkey">
+    <index id="354" parent="289" name="sub_category_pkey">
       <ColNames>sc_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25411</ObjectId>
@@ -4913,14 +4955,14 @@ REJECTED</Labels>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="351" parent="289" name="sub_category_pkey">
+    <key id="355" parent="289" name="sub_category_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25412</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1042</StateNumber>
       <UnderlyingIndexId>25411</UnderlyingIndexId>
     </key>
-    <column id="352" parent="290" name="sa_id">
+    <column id="356" parent="290" name="sa_id">
       <DataType>bigint|0s</DataType>
       <DefaultExpression>nextval(&apos;super_admin_sa_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4928,28 +4970,28 @@ REJECTED</Labels>
       <StateNumber>1026</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="353" parent="290" name="sa_name">
+    <column id="357" parent="290" name="sa_name">
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>1026</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="354" parent="290" name="sa_email">
+    <column id="358" parent="290" name="sa_email">
       <DataType>varchar(250)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>1026</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="355" parent="290" name="sa_password">
+    <column id="359" parent="290" name="sa_password">
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>1026</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="356" parent="290" name="super_admin_pkey">
+    <index id="360" parent="290" name="super_admin_pkey">
       <ColNames>sa_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25342</ObjectId>
@@ -4958,7 +5000,7 @@ REJECTED</Labels>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="357" parent="290" name="super_admin_sa_email_key">
+    <index id="361" parent="290" name="super_admin_sa_email_key">
       <ColNames>sa_email</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25344</ObjectId>
@@ -4969,14 +5011,14 @@ REJECTED</Labels>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="358" parent="290" name="super_admin_pkey">
+    <key id="362" parent="290" name="super_admin_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25343</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1026</StateNumber>
       <UnderlyingIndexId>25342</UnderlyingIndexId>
     </key>
-    <key id="359" parent="290" name="super_admin_sa_email_key">
+    <key id="363" parent="290" name="super_admin_sa_email_key">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>25345</ObjectId>
       <StateNumber>1026</StateNumber>
