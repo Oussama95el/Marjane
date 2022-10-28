@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class PromotionDao extends AbstractHibernateDao<PromotionEntity>{
 
@@ -38,31 +39,40 @@ public class PromotionDao extends AbstractHibernateDao<PromotionEntity>{
     }
     // create promotion
     public boolean createPromotion(PromotionEntity promotion) {
-        return create(promotion);
+        if (Objects.equals(promotion.getPCategory().getcName(), "Multi Media")) {
+            return false;
+        } else {
+            create(promotion);
+            return true;
+        }
+    }
+
+    // if current Time is between 8 and 12 update promotion status is possible
+    public boolean updatePromotionStatusBasedOnTime(PromotionEntity promotion, String status) {
+        LocalTime currentTime = LocalTime.now();
+        if (currentTime.isAfter(LocalTime.of(8, 0)) && currentTime.isBefore(LocalTime.of(12, 0))) {
+            // create update query where promotion category is equal to promotion category
+            return jpaService.runInTransaction(entityManager -> {
+                entityManager.createQuery("update PromotionEntity p set p.pStatus = :status where p.pCategory = :category AND p.id = :id")
+                        .setParameter("status", status)
+                        .setParameter("category", promotion.getPCategory())
+                        .setParameter("id", promotion.getId())
+                        .executeUpdate();
+                return true;
+            });
+        }else{
+            return false;
+        }
     }
 
 
-
-    public static void main(String[] args) {
-        PromotionDao promotionDao = new PromotionDao();
-        CategoryEntity categoryDao = new CategoryDao().getCategoryById(1);
-        SubCategoryEntity subCategory = new SubCategoryDao().getSubCategoryById(1);
-        PromotionEntity promotionEntity = new PromotionEntity();
-
-        System.out.println(promotionDao.getPromotionById(2).toString());
-
-//         set values to promotionEntity object
-//        promotionEntity.setPCategory(categoryDao);
-//        promotionEntity.setPSubCategory(subCategory);
-        // set variable to random localDate value
-//        LocalDate localDate = LocalDate.of(2020, 12, 12);
-//         set start date to today
-//        promotionEntity.setPStartDate(localDate);
-//        promotionEntity.setPExpireDate(localDate);
-//        promotionEntity.setPRate(new BigDecimal("10"));
-//        promotionEntity.setPPointFidelite(100);
-//        promotionDao.createPromotion(promotionEntity);
-
-
+    // function to update automatically promotion status based on expiration date if status is pending change to expired
+    public void updatePromotionStatusBasedOnDate() {
+        LocalDate currentDate = LocalDate.now();
+        jpaService.runInTransaction(entityManager -> {
+            return entityManager.createQuery("update PromotionEntity p set p.pStatus = 'expired' where p.pExpireDate < :currentDate AND p.pStatus = 'pending'")
+                    .setParameter("currentDate", currentDate)
+                    .executeUpdate();
+        });
     }
 }

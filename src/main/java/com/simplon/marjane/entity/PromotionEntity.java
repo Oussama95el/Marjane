@@ -41,7 +41,7 @@ public class PromotionEntity implements Serializable {
     private Integer pPointFidelite;
 
     @Column(name = "p_status", length = 100)
-    private String pStatus;
+    private String pStatus = "Pending";
 
     public Long getId() {
         return id;
