@@ -67,7 +67,7 @@ public class PromotionDao extends AbstractHibernateDao<PromotionEntity>{
 
 
     // function to update automatically promotion status based on expiration date if status is pending change to expired
-    public void updatePromotionStatusBasedOnDate() {
+    public void updatePromotionStatusBasedOnExpirationDate() {
         LocalDate currentDate = LocalDate.now();
         jpaService.runInTransaction(entityManager -> {
             return entityManager.createQuery("update PromotionEntity p set p.pStatus = 'expired' where p.pExpireDate < :currentDate AND p.pStatus = 'pending'")

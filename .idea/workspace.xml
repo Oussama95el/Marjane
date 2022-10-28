@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6bebe22-1318-4345-b602-2fb75d1dd3a5" name="Changes" comment="HOT 004:: adding a unit test with dependency needed">
+    <list default="true" id="e6bebe22-1318-4345-b602-2fb75d1dd3a5" name="Changes" comment="HOT 004:: adding a unit test and promotions condition methods">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/Dao/PromotionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/Dao/PromotionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/entity/PromotionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/entity/PromotionEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/simplon/marjane/Dao/PromotionDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/simplon/marjane/Dao/PromotionsTest/PromotionDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/simplon/marjane/Dao/PromotionsTest/PromotionDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/simplon/marjane/Dao/PromotionsTest/PromotionDaoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +169,7 @@
       <updated>1666692506009</updated>
       <workItem from="1666692507946" duration="2194000" />
       <workItem from="1666694817564" duration="41768000" />
-      <workItem from="1666867848144" duration="19975000" />
+      <workItem from="1666867848144" duration="20534000" />
     </task>
     <task id="LOCAL-00001" summary="adding utils and menu functions">
       <created>1666695225951</created>
@@ -228,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666896947621</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="HOT 004:: adding a unit test and promotions condition methods">
+      <created>1666950968061</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1666950968061</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,6 +259,7 @@
     <MESSAGE value="HOT 004:: adding adding table references to the Entity classes" />
     <MESSAGE value="HOT 004:: adding a lot of changes to describe" />
     <MESSAGE value="HOT 004:: adding a unit test with dependency needed" />
-    <option name="LAST_COMMIT_MESSAGE" value="HOT 004:: adding a unit test with dependency needed" />
+    <MESSAGE value="HOT 004:: adding a unit test and promotions condition methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="HOT 004:: adding a unit test and promotions condition methods" />
   </component>
 </project>

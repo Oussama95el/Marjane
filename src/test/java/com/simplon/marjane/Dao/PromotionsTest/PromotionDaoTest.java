@@ -40,4 +40,10 @@ class PromotionDaoTest {
         PromotionDao promotionDao = new PromotionDao();
         assert promotionDao.updatePromotionStatusBasedOnTime(promotionDao.getPromotionById(1), "VALID");
     }
+
+    @Test
+    void updatePromotionStatusBasedOnExpirationDateTest(){
+        PromotionDao promotionDao = new PromotionDao();
+        assert promotionDao.updatePromotionStatusBasedOnExpirationDate();
+    }
 }
