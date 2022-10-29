@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6bebe22-1318-4345-b602-2fb75d1dd3a5" name="Changes" comment="HOT 004:: adding DB file">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9b0601f7-543e-4a55-9792-09eb979f90e8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9b0601f7-543e-4a55-9792-09eb979f90e8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9b0601f7-543e-4a55-9792-09eb979f90e8/storage_v2/_src_/database/marjane.jG8FMg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9b0601f7-543e-4a55-9792-09eb979f90e8/storage_v2/_src_/database/marjane.jG8FMg/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="e6bebe22-1318-4345-b602-2fb75d1dd3a5" name="Changes" comment="HOT 004:: editing DB_file.sql">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/Dao/PromotionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/Dao/PromotionDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/entity/PromotionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/entity/PromotionEntity.java" afterDir="false" />
@@ -89,7 +87,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PromotionDaoTest.updatePromotionStatusBasedOnExpirationDateTest">
+  <component name="RunManager">
     <configuration name="PromotionDaoTest.createPromotion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="App" />
       <extension name="coverage">
@@ -190,7 +188,7 @@
       <updated>1666692506009</updated>
       <workItem from="1666692507946" duration="2194000" />
       <workItem from="1666694817564" duration="41768000" />
-      <workItem from="1666867848144" duration="25757000" />
+      <workItem from="1666867848144" duration="36623000" />
     </task>
     <task id="LOCAL-00001" summary="adding utils and menu functions">
       <created>1666695225951</created>
@@ -269,7 +267,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666951402524</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="HOT 004:: version final">
+      <created>1666956795611</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1666956795611</updated>
+    </task>
+    <task id="LOCAL-00013" summary="HOT 004:: editing DB_file.sql">
+      <created>1666964026869</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1666964026869</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,6 +309,8 @@
     <MESSAGE value="HOT 004:: adding a unit test with dependency needed" />
     <MESSAGE value="HOT 004:: adding a unit test and promotions condition methods" />
     <MESSAGE value="HOT 004:: adding DB file" />
-    <option name="LAST_COMMIT_MESSAGE" value="HOT 004:: adding DB file" />
+    <MESSAGE value="HOT 004:: version final" />
+    <MESSAGE value="HOT 004:: editing DB_file.sql" />
+    <option name="LAST_COMMIT_MESSAGE" value="HOT 004:: editing DB_file.sql" />
   </component>
 </project>

@@ -41,7 +41,7 @@ public class PromotionEntity implements Serializable {
     private Integer pPointFidelite;
 
     @Column(name = "p_status", length = 100 , nullable = false)
-    private String pStatus = "Pending";
+    private String pStatus = "PENDING";
 
     public Long getId() {
         return id;
@@ -129,7 +129,7 @@ public class PromotionEntity implements Serializable {
                 "\n StartDate = " + pStartDate +
                 "\n ExpireDate = " + pExpireDate +
                 "\n Rate = " + pRate +"%"+
-                "\n Point Fidelite =" + pPointFidelite +
+                "\n Point Fidelite =" + pPointFidelite + " points"+
                 "\n Status = " + pStatus;
     }
 }

@@ -5,10 +5,7 @@ import com.simplon.marjane.entity.PromotionEntity;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
-import java.util.Objects;
 
-import static com.simplon.marjane.utils.MainUtils.print;
-import static com.simplon.marjane.utils.MainUtils.println;
 
 public class PromotionDao extends AbstractHibernateDao<PromotionEntity>{
 
@@ -38,18 +35,14 @@ public class PromotionDao extends AbstractHibernateDao<PromotionEntity>{
     }
     // create promotion
     public boolean createPromotion(PromotionEntity promotion) {
-        if (Objects.equals(promotion.getPCategory().getcName(), "Multi Media")) {
-            return false;
-        } else {
             create(promotion);
             return true;
-        }
     }
 
     // if current Time is between 8 and 12 update promotion status is possible
     public boolean updatePromotionStatusBasedOnTime(PromotionEntity promotion, String status) {
         LocalTime currentTime = LocalTime.now();
-        if (currentTime.isAfter(LocalTime.of(8, 0)) && currentTime.isBefore(LocalTime.of(12, 30))) {
+        if (currentTime.isAfter(LocalTime.of(8, 0)) && currentTime.isBefore(LocalTime.of(18, 30))) {
             // create update query where promotion category is equal to promotion category
             return jpaService.runInTransaction(entityManager -> {
                 entityManager.createQuery("update PromotionEntity p set p.pStatus = :status where p.pCategory = :category AND p.id = :id")

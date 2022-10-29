@@ -49,7 +49,7 @@ class PromotionDaoTest {
         promotionDao.updatePromotionStatusBasedOnExpirationDate();
         promotionEntities.forEach(promotionEntity -> {
             if (promotionEntity.getPExpireDate().isBefore(LocalDate.now())) {
-                assertEquals("PENDING", promotionEntity.getPStatus());
+                assertEquals("EXPIRED", promotionEntity.getPStatus());
             }
         });
 

@@ -42,7 +42,7 @@ public class Menus {
     }
     // scan admin email and password to login
     public static Object adminLoginMenu() {
-        MainUtils.println("------------------- Admin Login Menu -------------------");
+        MainUtils.println("------------------- Manager Login Menu -------------------");
         MainUtils.println("Enter your email: ");
         String email = MainUtils.scan().nextLine();
         MainUtils.println("Enter your password: ");
@@ -50,8 +50,8 @@ public class Menus {
         return new Object[]{email, password};
     }
     // scan manager email and password to login
-    public static Object managerLoginMenu() {
-        MainUtils.println("------------------- Manager Login Menu -------------------");
+    public static Object respRayonLoginMenu() {
+        MainUtils.println("------------------- Responsable Rayon Login Menu -------------------");
         MainUtils.println("Enter your email: ");
         String email = MainUtils.scan().nextLine();
         MainUtils.println("Enter your password: ");
@@ -76,6 +76,27 @@ public class Menus {
         MainUtils.println("1. Create Responsible Rayon");
         MainUtils.println("2. Promotions");
         MainUtils.println("3. Statistics");
+        MainUtils.println("4. Disconnect");
+        MainUtils.println("-------------------------------------------------");
+        MainUtils.print("Enter your choice: ");
+        return MainUtils.scan().nextInt();
+    }
+
+    public static int respRayonMenu() {
+        MainUtils.println("------------------- Responsable Rayon Main Menu -------------------");
+        MainUtils.println("1. Promotions");
+        MainUtils.println("2. Statistics");
+        MainUtils.println("3. Disconnect");
+        MainUtils.println("-------------------------------------------------");
+        MainUtils.print("Enter your choice: ");
+        return MainUtils.scan().nextInt();
+    }
+    // Responsable Rayon menu Promotions (view promotion , Confirm promotion, Reject promotion)
+    public static int respRayonPromotionMenu() {
+        MainUtils.println("-------------------  Promotion Menu -------------------");
+        MainUtils.println("1. View Promotions");
+        MainUtils.println("2. Confirm Promotion");
+        MainUtils.println("3. Reject Promotion");
         MainUtils.println("4. Disconnect");
         MainUtils.println("-------------------------------------------------");
         MainUtils.print("Enter your choice: ");
@@ -153,8 +174,14 @@ public class Menus {
         promotion.setPExpireDate(LocalDate.of(year, month, day));
         MainUtils.println("Enter the promotion rate: ");
         int rate = MainUtils.scan().nextInt();
+        assert rate > 50;
+        // check if category name is Multi Media if true check if rate is bigger than 20
+        if (category.getcName().equals("Multi Media") && rate > 20) {
+            MainUtils.println("Rate can't be bigger than 20%");
+            System.exit(0);
+        }
         // set rate to promotion using decimal format
-        promotion.setPRate(new BigDecimal(String.valueOf(rate)));
+        promotion.setPRate(new BigDecimal(rate));
         promotion.setPPointFidelite(rate*10);
         return promotion;
     }
@@ -216,4 +243,22 @@ public class Menus {
     public static LocalDate setLocalDate(int year, int month, int day) {
         return LocalDate.of(year, month, day);
     }
+
+    // function display update promotion menu
+    public static int updatePromotionMenu() {
+        MainUtils.println("------------------- Update Promotion Menu -------------------");
+        MainUtils.println("1. Update Promotion Category");
+        MainUtils.println("2. Update Promotion SubCategory");
+        MainUtils.println("3. Update Promotion Start Date");
+        MainUtils.println("4. Update Promotion End Date");
+        MainUtils.println("5. Update Promotion Rate");
+        MainUtils.println("6. Update Promotion Point Fidelite");
+        MainUtils.println("7. Update Promotion Status");
+        MainUtils.println("8. Back");
+        MainUtils.println("-------------------------------------------------");
+        MainUtils.print("Enter your choice: ");
+        return MainUtils.scan().nextInt();
+    }
+
+
 }

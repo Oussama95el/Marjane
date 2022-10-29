@@ -8,6 +8,7 @@ import com.simplon.marjane.entity.AdminEntity;
 import com.simplon.marjane.entity.PromotionEntity;
 import com.simplon.marjane.entity.RespRayonEntity;
 
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Scanner;
 
@@ -118,12 +119,13 @@ public class MainUtils {
                                 case 1:
                                     // view all promotions
                                     List<PromotionEntity> promotions = promotionDao.findAll();
-                                    for (PromotionEntity promotion : promotions) {
-                                        println(promotion.toString());
-                                    }
+                                    // stream to display promotions ordered by id desc
+                                    promotions.stream().sorted((p1, p2) -> p2.getId().compareTo(p1.getId())).forEach(System.out::println);
+                                    break;
                                 case 2:
                                     // Create Promotion using setters
-                                    PromotionEntity newPromotion = Menus.createNewPromotion(new PromotionEntity());
+                                    PromotionEntity newPromotion = new PromotionEntity();
+                                    Menus.createNewPromotion(newPromotion);
                                     if (promotionDao.createPromotion(newPromotion)) {
                                         println("Promotion created successfully");
                                     } else {
@@ -132,6 +134,15 @@ public class MainUtils {
                                     break;
                                 case 3:
                                     // Update Promotion
+                                    println("Enter promotion id to update");
+                                    int id = scan().nextInt();
+                                    PromotionEntity promotion = promotionDao.getPromotionById(id);
+                                    if (promotion != null) {
+                                        //
+                                    } else {
+                                        println("Promotion not found");
+                                    }
+
                                     break;
                                 case 4:
                                     // Delete Promotion
@@ -162,7 +173,85 @@ public class MainUtils {
 
     public static void respRayonWorkflow(){
         // respRayonWorkflow display menu login and manager main menu
+        Object[] respRayonLogin = (Object[]) Menus.respRayonLoginMenu();
+        RespRayonDao respRayonDao = new RespRayonDao();
+        if (respRayonDao.validateRespRayonLogin(respRayonLogin)) {
+            do {
+                choice = Menus.respRayonMenu();
+                switch (choice) {
+                    case 1:   // Handle Promotion  actions for respRayon
+                        // Promotion menu
+                        choice = Menus.respRayonPromotionMenu();
+                        // while loop to display promotions menu
+                        while (choice != 4) {
+                            PromotionDao promotionDao = new PromotionDao();
+                            switch (choice) {
+                                case 1:
+                                    // view all promotions
+                                    List<PromotionEntity> promotions = promotionDao.findAll();
+                                    // stream to display promotions ordered by id desc
+                                    promotions.stream().sorted((p1, p2) -> p2.getId().compareTo(p1.getId())).forEach(System.out::println);
+                                    break;
+                                case 2:
+                                    // Confirm Promotion using setters if current time is between 8 and 12
+                                    if (LocalTime.now().isAfter(LocalTime.of(8, 0)) && LocalTime.now().isBefore(LocalTime.of(18, 0))) {
+                                        // get promotion id and update status to confirmed
+                                        println("Enter promotion id to confirm");
+                                        int id = scan().nextInt();
+                                        PromotionEntity promotion = promotionDao.getPromotionById(id);
+                                        assert promotion != null;
+                                            if (promotionDao.updatePromotionStatusBasedOnTime(promotion, "CONFIRMED")) {
+                                                println("Promotion confirmed successfully");
+                                            } else {
+                                                println("Promotion confirmation failed");
+                                            }
+                                    } else {
+                                        println("Confirmation is only allowed between 8:00  and 12:00");
+                                    }
+                                    break;
+                                case 3:
+                                    // Rejected Promotion using setters if current time is between 8 and 12
+                                    if (LocalTime.now().isAfter(LocalTime.of(8, 0)) && LocalTime.now().isBefore(LocalTime.of(12, 0))) {
+                                        // get promotion id and update status to rejected
+                                        println("Enter promotion id to reject");
+                                        int id = scan().nextInt();
+                                        PromotionEntity promotion = promotionDao.getPromotionById(id);
+                                        assert promotion != null;
+                                        if (promotionDao.updatePromotionStatusBasedOnTime(promotion, "REJECTED")) {
+                                            println("Promotion rejected successfully");
+                                        } else {
+                                            println("Promotion rejection failed");
+                                        }
+                                    } else {
+                                        println("Rejection is only allowed between 8:00  and 12:00");
+                                    }
+                                    break;
+                                case 4:
+                                    // Exit
+                                    break;
+                                default:
+                                    println("Invalid choice");
+                                    break;
+                            }
+                            choice = Menus.promotionsMenu();
+                        }
+                        break;
+                    case 2:
+                        // Statistics menu
+                        println("Statistics menu on maintenance");
+                        break;
+                    case 3:
+                        // Exit
+                        break;
+                    default:
+                        println("Invalid choice");
+                        break;
+                }
 
+            } while (choice != 6) ;
+        } else {
+            println("Admin login failed");
+        }
     }
 
 }
