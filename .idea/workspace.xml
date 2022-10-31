@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6bebe22-1318-4345-b602-2fb75d1dd3a5" name="Changes" comment="HOT 004:: editing DB_file.sql">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/controller/AuthentificationServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e6bebe22-1318-4345-b602-2fb75d1dd3a5" name="Changes" comment="HOT 004:: editing DB_file.sql" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +16,7 @@
         <option value="com.haulmont.jpb.JpaEntity" />
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -179,7 +177,7 @@
       <updated>1666692506009</updated>
       <workItem from="1666692507946" duration="2194000" />
       <workItem from="1666694817564" duration="41768000" />
-      <workItem from="1666867848144" duration="37973000" />
+      <workItem from="1666867848144" duration="38433000" />
     </task>
     <task id="LOCAL-00001" summary="adding utils and menu functions">
       <created>1666695225951</created>
@@ -279,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667053856169</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="HOT 004:: editing DB_file.sql">
+      <created>1667204843170</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1667204843170</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
