@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6bebe22-1318-4345-b602-2fb75d1dd3a5" name="Changes" comment="HOT 004:: editing DB_file.sql">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/controller/AuthentificationServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/Dao/PromotionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/Dao/PromotionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/entity/PromotionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/entity/PromotionEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/utils/MainUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/utils/MainUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/utils/Menus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplon/marjane/utils/Menus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/simplon/marjane/Dao/PromotionsTest/PromotionDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/simplon/marjane/Dao/PromotionsTest/PromotionDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/simplon/marjane/Dao/PromotionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/simplon/marjane/Dao/PromotionDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/simplon/marjane/entity/PromotionEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/simplon/marjane/entity/PromotionEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/simplon/marjane/utils/MainUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/simplon/marjane/utils/MainUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/simplon/marjane/utils/Menus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/simplon/marjane/utils/Menus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/simplon/marjane/Dao/PromotionsTest/PromotionDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/simplon/marjane/Dao/PromotionsTest/PromotionDaoTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +17,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="com.haulmont.jpb.JpaEntity" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -64,7 +55,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -188,7 +179,7 @@
       <updated>1666692506009</updated>
       <workItem from="1666692507946" duration="2194000" />
       <workItem from="1666694817564" duration="41768000" />
-      <workItem from="1666867848144" duration="36623000" />
+      <workItem from="1666867848144" duration="37973000" />
     </task>
     <task id="LOCAL-00001" summary="adding utils and menu functions">
       <created>1666695225951</created>
@@ -281,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666964026869</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="HOT 004:: editing DB_file.sql">
+      <created>1667053856169</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1667053856169</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
